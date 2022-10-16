@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { schema } = require('./User.model');
 
 
 const jobSchema = new mongoose.Schema({
@@ -19,18 +20,10 @@ const jobSchema = new mongoose.Schema({
         type: Number,
     },
     Applicants: [
-        {
-          street: '123',
-          city: Faketon,
-          state: MA,
-          zip: 12345
-        },
-        {
-          "street": "1 Some Other Street",
-          "city": "Boston",
-          "state": "MA",
-          "zip": "12345"
-        }
+  {
+    type:mongoose.Schema.Types.ObjectId, ref:'User.model'
+  }
+    ]
 })
 
 const Job = mongoose.model('Job', jobSchema);
