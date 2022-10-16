@@ -7,19 +7,20 @@ const login = async (req, res) => {
 
   const user = await User.findOne({ email }).select('+password')
 
+  console.log('user :>> ', user)
   if (!user) return res.status(404).json({ message: 'Invalid Credentials' })
 
   const isMatch = bcrypt.compare(password, user.password)
   if (!isMatch) return res.status(404).json({ message: 'Invalid Credentials' })
 
   const token = jwt.sign(
-    { email: user.email, name: user.name, userType: User.user_type },
+    { email: user.email, name: user.name, user_type: user.user_type },
     process.env.JWT_SECRET_KEY,
     {
       expiresIn: '1h',
     },
   )
-  res.status(200).json(token)
+  res.status(200).json({ token, id: user._id })
 }
 const signup = async (req, res) => {
   const { name, email, password, user_type, phone_number } = req.body
