@@ -1,8 +1,6 @@
 const Job = require('../models/Job.model')
 const User = require('../models/User.model')
 
-
-
 const updateProfile = async (req, res) => {
   params = req.body
   const user = await User.updateOne(
@@ -19,17 +17,19 @@ const updateProfile = async (req, res) => {
   )
   res.json(user)
 }
-const jobAdd= async (req, res) =>{
+const addJob = async (req, res) => {
   params = req.body
+  console.log('params :>> ', params)
   const job = new Job({
     job_title: params.job_title,
     job_description: params.job_description,
     major: params.major,
     company_id: params.company_id,
-    applicants: {},
   })
+  await job.save()
+  res.json({ job })
 }
 module.exports = {
   updateProfile,
-  jobAdd
+  addJob,
 }
