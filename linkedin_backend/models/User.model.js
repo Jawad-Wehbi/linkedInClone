@@ -35,10 +35,16 @@ const userSchema = new mongoose.Schema({
     major: {
         type: String
     },
-    country:{
+    country: {
         type: String
     },
-    city:{
+    city: {
+        type: String
+    },
+    number_of_employees:{
+        type: String
+    },
+    bio: {
         type: String
     }
 })
