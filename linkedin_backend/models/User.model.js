@@ -17,35 +17,30 @@ const userSchema = new mongoose.Schema({
         required: 'password is required',
         select: false
     },
-    // Profile_photo: {
-    //     type:URL
-    // },
-    //     type:Number,
-    // Phone_Number: {
-    //     type:Number,
-    //     required: 'Phone Number is required',
-    //     unique: true
-    // },
-    // CV: {
-    //     type:URL,
-    //     required: 'CV is required',
-    // },
-    // User_Type: {
-    //     type: String,
-    //     required: 'User type is required'
-    // },
-    // Major: {
-    //     type: String,
-    //     required: 'Major is required'
-    // },
-    // Country:{
-    //     type: String,
-    //     required: 'Country is required'
-    // },
-    // City:{
-    //     type: String,
-    //     required: 'City is required'
-    // }
+    profile_photo: {
+        type:String
+    },
+    phone_number: {
+        type:String,
+        required: 'Phone Number is required',
+        unique: true
+    },
+    cv: {
+        type:String
+    },
+    user_type: {
+        type: String,
+        required: 'User type is required'
+    },
+    major: {
+        type: String
+    },
+    country:{
+        type: String
+    },
+    city:{
+        type: String
+    }
 })
 
 const User = mongoose.model('User', userSchema);
