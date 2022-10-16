@@ -4,8 +4,7 @@ const { schema } = require('./User.model')
 const jobSchema = new mongoose.Schema({
   job_title: {
     type: String,
-    required: 'Job title is required',
-    unique: true,
+    required: 'Job title is required'
   },
   job_description: {
     type: String,
