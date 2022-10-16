@@ -17,12 +17,12 @@ const jobSchema = new mongoose.Schema({
         required: 'password is required'
     },
     Company_Id: {
-        type: Number,
+        type: String,
     },
     Applicants: [
-  {
-    type:mongoose.Schema.Types.ObjectId, ref:'User.model'
-  }
+    {
+        type:Array
+    }
     ]
 })
 
